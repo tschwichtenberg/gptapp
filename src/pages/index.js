@@ -34,11 +34,14 @@ export default function Home() {
   };
 
   return (
+    <>
+    <div className='header'>Code Translator</div>
+    <br/>
     <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1 }}>
+      <div className="input-box" style={{ flex: 1 }}>
         <form onSubmit={handleSubmit}>
           <label>
-            Input Language:
+            Input Language: 
           </label>
             <select
               name="inputLanguage"
@@ -47,7 +50,9 @@ export default function Home() {
             >
               <option value="javascript">JavaScript</option>
               <option value="python">Python</option>
+              <option value="java">Java</option>
               <option value="c++">C++</option>
+              <option value="c#">C#</option>
             </select>
           <br />
           <div className="input-field">
@@ -55,7 +60,7 @@ export default function Home() {
             name="input"
             value={input}
             onChange={(event) => setInput(event.target.value)}
-            placeholder="Enter text to translate"
+            placeholder="Enter code to translate"
           />
           <div className="submit-button">
             <button type="submit" onClick={handleSubmit}>
@@ -74,15 +79,17 @@ export default function Home() {
             value={outputLanguage}
             onChange={(event) => setOutputLanguage(event.target.value)}
           >
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="c++">C++</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="c++">C++</option>
+              <option value="c#">C#</option>
           </select>
         </label>
-        <br />
-        <div style={{ whiteSpace: 'pre-wrap'}}>{output}</div> 
+        <div className='output-field'>{output}</div> 
       </div>
     </div>
+  </>
   );
 }
 

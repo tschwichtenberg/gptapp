@@ -12,7 +12,7 @@ export default async (req, res) => {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${req.body.prompt}`,
-      max_tokens: 100,
+      max_tokens: 300,
     });
 
     res.status(200).json({ text: `${completion.data.choices[0].text}` });
