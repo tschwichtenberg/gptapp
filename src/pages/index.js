@@ -18,7 +18,7 @@ export default function Home() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/openai', {
+      const response = await fetch('./api/openai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,6 @@ export default function Home() {
         body: JSON.stringify({ "prompt": prompt }),
       });
       const data = await response.json();
-      console.log(data)
       setOutput(data.text);
     } catch (error) {
       console.error(error);
