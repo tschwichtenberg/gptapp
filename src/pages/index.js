@@ -18,7 +18,7 @@ export default function Home() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('./api/openai', {
+      const response = await fetch('api/openai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ export default function Home() {
         body: JSON.stringify({ "prompt": prompt }),
       });
       const data = await response.json();
+      console.log(data)
       setOutput(data.text);
     } catch (error) {
       console.error(error);
@@ -85,7 +86,11 @@ export default function Home() {
               <option value="c#">C#</option>
           </select>
         </label>
-        <div className='output-field'>{output}</div> 
+        <textarea
+          name="output"
+          value={output}
+          className='output-field'
+        ></textarea>
       </div>
     </div>
   </>
